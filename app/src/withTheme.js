@@ -14,11 +14,18 @@ const theme = createMuiTheme({
             dark: red[700],
         },
         secondary: {
+            veryLight: blueGrey[100],
             light: blueGrey[300],
             main: blueGrey[500],
             dark: blueGrey[700],
         },
     },
+
+    spacing: {
+        sizeS: '1rem',
+        sizeM: '2rem',
+        sizeL: '3rem',
+    }
 });
 
 export default Component => props => (
