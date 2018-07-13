@@ -5,14 +5,13 @@ import withTheme from '../withTheme';
 import NavBar from '../components/NavBar';
 import DropZoneFile from '../components/DropZoneFile';
 
-
-const styles = theme => ({
+const styles = theme => ( {
     container: {
         maxWidth: `${ theme.breakpoints.values.md }px`,
         margin: 'auto',
-        padding: theme.spacing.sizeS
-    }
-});
+        padding: theme.spacing.sizeS,
+    },
+} );
 
 export class PageHome extends React.Component {
     render() {
@@ -20,13 +19,13 @@ export class PageHome extends React.Component {
         return (
             <div>
                 <NavBar />
-                <div className={ classes.container }>
-                    <Typography variant='display1' gutterBottom>
+                <div className={classes.container}>
+                    <Typography variant="display1" gutterBottom>
                         Welcome to your documents uploader
                     </Typography>
-                    <Typography variant='body1' gutterBottom>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <Typography variant="body1" gutterBottom>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
                     </Typography>
                     <DropZoneFile />
                 </div>
@@ -35,6 +34,4 @@ export class PageHome extends React.Component {
     }
 }
 
-export default withTheme(
-    withStyles( styles )( PageHome )
-);
+export default withTheme( withStyles( styles )( PageHome ) );

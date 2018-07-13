@@ -6,18 +6,18 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 // A theme with custom primary and secondary color.
 // It's optional.
-const theme = createMuiTheme({
+const theme = createMuiTheme( {
     palette: {
         primary: {
-            light: red[300],
-            main: red[500],
-            dark: red[700],
+            light: red[ 300 ],
+            main: red[ 500 ],
+            dark: red[ 700 ]
         },
         secondary: {
-            veryLight: blueGrey[100],
-            light: blueGrey[300],
-            main: blueGrey[500],
-            dark: blueGrey[700],
+            veryLight: blueGrey[ 100 ],
+            light: blueGrey[ 300 ],
+            main: blueGrey[ 500 ],
+            dark: blueGrey[ 700 ],
         },
     },
 
@@ -25,8 +25,8 @@ const theme = createMuiTheme({
         sizeS: '1rem',
         sizeM: '2rem',
         sizeL: '3rem',
-    }
-});
+    },
+} );
 
 export default Component => props => (
     // MuiThemeProvider makes the theme available down the React tree
