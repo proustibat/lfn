@@ -7,27 +7,27 @@ import numeral from 'numeral';
 import DroppedFilesListItemAvatar from './DroppedFilesListItemAvatar';
 import DroppedFilesListItemDeleteIcon from './DroppedFilesListItemDeleteIcon';
 
-
 const styles = theme => ( {
-
+    listItemTextRoot: {
+        paddingRight: theme.spacing.sizeL
+    }
 } );
 
 export class DroppedFilesListItem extends React.Component {
-    onDelete = index => {
-        this.props.onDelete( index );
-    };
-
     render() {
-        const { index, file } = this.props;
+        const { index, file, classes } = this.props;
         return (
             <ListItem key={index}>
                 <DroppedFilesListItemAvatar index={index} file={file} />
-                <ListItemText primary={file.name} secondary={numeral( file.size ).format( '0.00b' )} />
-                <DroppedFilesListItemDeleteIcon index={index} onDelete={this.onDelete}/>
+                <ListItemText
+                    className={ classes.listItemTextRoot }
+                    primary={file.name}
+                    secondary={numeral( file.size ).format( '0.00b' )}
+                />
+                <DroppedFilesListItemDeleteIcon index={index} />
             </ListItem>
         );
     }
-
 }
 
 export default withTheme( withStyles( styles )( DroppedFilesListItem ) );

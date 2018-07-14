@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+
+import PageHome from './pages/PageHome';
+import configureStore from './store/configureStore';
 
 import 'reset-css/reset.css';
 
 import 'typeface-roboto';
 import './index.css';
 
-import PageHome from './pages/PageHome';
+const store = configureStore();
 
-ReactDOM.render( <PageHome />, document.getElementById( 'root' ) );
+const jsx = (
+    <Provider store = { store }>
+        <PageHome />
+    </Provider>
+);
+
+ReactDOM.render( jsx, document.getElementById( 'root' ) );
 registerServiceWorker();

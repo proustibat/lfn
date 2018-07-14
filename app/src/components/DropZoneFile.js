@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import DroppedFilesList from './DroppedFilesList';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { connect } from 'react-redux';
+import { addFiles } from '../actions/files';
 
 const styles = theme => ( {
     stripes: {
@@ -42,7 +44,7 @@ const styles = theme => ( {
 export class DropZoneFile extends React.Component {
     state = {
         loading: false,
-        files: [],
+        // files: [],
         // https://www.iana.org/assignments/media-types/media-types.xhtml
         acceptedFiles: [
             'image/*',
@@ -61,26 +63,23 @@ export class DropZoneFile extends React.Component {
     };
 
     onDrop = acceptedFiles => {
-        console.log( acceptedFiles );
-        this.setState( () => ( { loading: true } ) );
         // TODO: find a way to check if the files are already dropped
-        const files = [ ...this.state.files, ...acceptedFiles ];
-
-        if ( files.length > 0 ) {
-            const asyncPromises = [ ...files ].map( this.pFileReader );
+        if( acceptedFiles.length > 0 ) {
+            console.log( acceptedFiles );
+            this.setState( () => ( { loading: true } ) );
+            const asyncPromises = [ ...acceptedFiles ].map( this.pFileReader );
             let previews;
             Promise.all( asyncPromises ).then( events => {
                 previews = events.map( event => event.currentTarget.result );
-                const formattedFiles = [ ...files ].map( ( file, index ) => {
-                    if ( file.type.includes( 'image' ) && !file.type.includes( 'photoshop' ) && !file.srcPreviewIcon ) {
-                        file.srcPreviewIcon = previews[index];
-                    }
-                    return file;
-                } );
+                const formattedFiles = this.formatDroppedFiles( acceptedFiles, previews );
+
+                // const files = [ ...this.state.files, ...formattedFiles ];
                 this.setState( () => ( {
-                    files: formattedFiles,
+                    // files,
                     loading: false,
                 } ) );
+
+                this.props.addFiles( formattedFiles );
             } );
         }
     };
@@ -93,10 +92,14 @@ export class DropZoneFile extends React.Component {
         } );
     };
 
-    onDelete = index => {
-        this.setState( () => ( {
-            files: this.state.files.filter( ( file, i ) => i !== index ),
-        } ) );
+    formatDroppedFiles = ( files, previews ) => {
+        const formattedFiles = [ ...files ].map( ( file, index ) => {
+            if ( file.type.includes( 'image' ) && !file.type.includes( 'photoshop' ) && !file.srcPreviewIcon ) {
+                file.srcPreviewIcon = previews[index];
+            }
+            return file;
+        } );
+        return formattedFiles;
     };
 
     renderDropzoneContent = ( { isDragActive, isDragReject, acceptedFiles, rejectedFiles } ) => {
@@ -142,10 +145,17 @@ export class DropZoneFile extends React.Component {
 
                 {this.state.loading && <LinearProgress />}
 
-                <DroppedFilesList files={this.state.files} onDelete={this.onDelete} />
+                <DroppedFilesList />
             </section>
         );
     }
 }
 
-export default withTheme( withStyles( styles )( DropZoneFile ) );
+const mapDispatchToProps = dispatch => ( {
+    addFiles: files => dispatch( addFiles( files ) )
+} );
+
+export default connect( undefined, mapDispatchToProps )(
+    withTheme( withStyles( styles )( DropZoneFile ) )
+);
+

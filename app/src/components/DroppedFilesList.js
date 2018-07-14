@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles/index';
 import withTheme from '../withTheme';
 import List from '@material-ui/core/List';
@@ -27,11 +28,6 @@ const styles = theme => ( {
 } );
 
 export class DroppedFilesList extends React.Component {
-
-    onDelete = index => {
-        this.props.onDelete( index );
-    };
-
     render() {
         const { classes } = this.props;
         return (
@@ -41,10 +37,9 @@ export class DroppedFilesList extends React.Component {
                         dense
                         component="div"
                         subheader={
-                            <ListSubheader component="div">
+                            <ListSubheader component="div" disableSticky={true}>
                                 {this.props.files.length > 1 && (
                                     <Badge
-                                        // className={classes.hello}
                                         badgeContent={this.props.files.length}
                                         color="secondary"
                                         classes={{
@@ -59,7 +54,7 @@ export class DroppedFilesList extends React.Component {
                         }
                     >
                         {this.props.files.map( ( file, index ) => (
-                            <DroppedFilesListItem  key={index} index={index} file={file} onDelete={this.onDelete} />
+                            <DroppedFilesListItem  key={index} index={index} file={file} />
                         ) )}
                     </List>
                 </div>
@@ -68,4 +63,10 @@ export class DroppedFilesList extends React.Component {
     }
 }
 
-export default withTheme( withStyles( styles )( DroppedFilesList ) );
+const mapStateToProps = state => ( {
+    files: state.files
+} );
+
+export default connect( mapStateToProps )(
+    withTheme( withStyles( styles )( DroppedFilesList ) )
+);
