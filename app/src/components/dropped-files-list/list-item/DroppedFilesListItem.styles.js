@@ -1,6 +1,6 @@
 const styles = theme => ( {
     listItemTextRoot: {
-        paddingRight: theme.spacing.sizeL
+        paddingRight: theme.spacing.sizeM
     }
 } );
 

@@ -28,10 +28,37 @@ export class DropZoneUploader extends React.Component {
             'application/epub+zip',
             '.azw3',
             '.xlsx',
+            '.kfx',
+            '.sdr',
+            '.mobi',
+            '.nef',
+            '.pptx',
+            '.otf',
+            '.ttf',
+            '.eot',
+            '.woff',
+            '.woff2',
+            '.ttc',
+            '.docx',
+            '.odt',
+            '.eps',
+            '.ai',
+            '.js',
+            '.jsx',
+            '.scss',
+            '.less',
+            '.css',
+            '.html',
+            '.yml',
+            '.ejs',
+            '.hbs',
+            '.php',
+            '.json',
         ].join( ',' ),
     };
 
     onDrop = acceptedFiles => {
+        // TODO: display an error message if rejected because of extension
         // TODO: find a way to check if the files are already dropped
         if( acceptedFiles.length > 0 ) {
             this.setState( () => ( { loading: true } ) );

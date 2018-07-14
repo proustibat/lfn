@@ -3,9 +3,11 @@ import { withStyles } from '@material-ui/core/styles/index';
 import withTheme from '../../../withTheme';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import numeral from 'numeral';
 import DroppedFilesListItemAvatar from './list-item-avatar/DroppedFilesListItemAvatar';
 import DroppedFilesListItemDeleteIcon from './list-item-delete-icon/DroppedFilesListItemDeleteIcon';
+import DroppedFilesListItemCloudIcon from './list-item-cloud-icon/DroppedFilesListItemCloudIcon';
 import styles from './DroppedFilesListItem.styles';
 
 
@@ -20,7 +22,10 @@ export class DroppedFilesListItem extends React.Component {
                     primary={file.name}
                     secondary={numeral( file.size ).format( '0.00b' )}
                 />
-                <DroppedFilesListItemDeleteIcon index={index} />
+                <DroppedFilesListItemCloudIcon />
+                <ListItemSecondaryAction>
+                    <DroppedFilesListItemDeleteIcon index={index} />
+                </ListItemSecondaryAction>
             </ListItem>
         );
     }

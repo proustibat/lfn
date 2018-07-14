@@ -26,6 +26,12 @@ const theme = createMuiTheme( {
         sizeM: '2rem',
         sizeL: '3rem',
     },
+
+    sizing: {
+        sizeS: '1rem',
+        sizeM: '1.5rem',
+        sizeL: '2rem',
+    },
 } );
 
 export default Component => props => (
