@@ -1,4 +1,5 @@
 const filesReducerDefaultState = [];
+
 export default ( state = filesReducerDefaultState, action ) => {
     switch ( action.type ) {
     case 'ADD_FILES':

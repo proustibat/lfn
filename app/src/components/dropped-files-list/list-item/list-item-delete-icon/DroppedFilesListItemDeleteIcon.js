@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import withTheme from '../withTheme';
+import withTheme from '../../../../withTheme';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { removeFile } from '../actions/files';
+import { removeFile } from '../../../../actions/files';
 
 
 export class DroppedFilesListItemDeleteIcon extends React.Component {
@@ -24,6 +24,7 @@ export class DroppedFilesListItemDeleteIcon extends React.Component {
         );
     }
 }
+
 
 const mapDispatchToProps = dispatch => ( {
     removeFile: index => dispatch( removeFile( index ) )

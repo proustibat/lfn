@@ -1,50 +1,19 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { withStyles } from '@material-ui/core/styles/index';
-import withTheme from '../withTheme';
+import withTheme from '../../withTheme';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import DroppedFilesList from './DroppedFilesList';
+import DroppedFilesList from '../dropped-files-list/DroppedFilesList';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { connect } from 'react-redux';
-import { addFiles } from '../actions/files';
+import { addFiles } from '../../actions/files';
+import styles from './DropZoneUploader.styles';
 
-const styles = theme => ( {
-    stripes: {
-        display: 'none',
-        // The drop zone is necessary only on desktop
-        [theme.breakpoints.up( 'sm' )]: {
-            //TODO: what about tablets or landscape mode on mobile ?!
-            display: 'flex',
-            width: '100%',
-            height: '20rem',
-            cursor: 'pointer',
-            border: 'solid',
-            borderColor: theme.palette.secondary.dark,
-            backgroundImage: `repeating-linear-gradient(-45deg, ${ theme.palette.secondary.veryLight }, ${
-                theme.palette.secondary.veryLight
-            } 10px, ${ theme.palette.secondary.light } 10px, ${ theme.palette.secondary.light } 20px)`,
-            animation: 'progress 2s linear infinite !important',
-            backgroundSize: '150% 100%',
-            marginBottom: theme.spacing.sizeM,
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: theme.palette.secondary.dark,
-            fontWeight: 'bold',
-        },
-    },
-    button: {
-        marginBottom: theme.spacing.sizeS,
-    },
-    rightIcon: {
-        marginLeft: theme.spacing.unit,
-    },
-} );
 
-export class DropZoneFile extends React.Component {
+export class DropZoneUploader extends React.Component {
     state = {
         loading: false,
-        // files: [],
         // https://www.iana.org/assignments/media-types/media-types.xhtml
         acceptedFiles: [
             'image/*',
@@ -65,20 +34,13 @@ export class DropZoneFile extends React.Component {
     onDrop = acceptedFiles => {
         // TODO: find a way to check if the files are already dropped
         if( acceptedFiles.length > 0 ) {
-            console.log( acceptedFiles );
             this.setState( () => ( { loading: true } ) );
             const asyncPromises = [ ...acceptedFiles ].map( this.pFileReader );
             let previews;
             Promise.all( asyncPromises ).then( events => {
                 previews = events.map( event => event.currentTarget.result );
-                const formattedFiles = this.formatDroppedFiles( acceptedFiles, previews );
-
-                // const files = [ ...this.state.files, ...formattedFiles ];
-                this.setState( () => ( {
-                    // files,
-                    loading: false,
-                } ) );
-
+                const formattedFiles = this.getFormattedFiles( acceptedFiles, previews );
+                this.setState( () => ( { loading: false } ) );
                 this.props.addFiles( formattedFiles );
             } );
         }
@@ -92,14 +54,16 @@ export class DropZoneFile extends React.Component {
         } );
     };
 
-    formatDroppedFiles = ( files, previews ) => {
-        const formattedFiles = [ ...files ].map( ( file, index ) => {
-            if ( file.type.includes( 'image' ) && !file.type.includes( 'photoshop' ) && !file.srcPreviewIcon ) {
+    getFormattedFiles = ( files, previews ) => {
+        return [ ...files ].map( ( file, index ) => {
+            if ( file.type.includes( 'image' ) &&
+                !file.type.includes( 'photoshop' ) &&
+                !file.type.includes( 'svg' )
+                && !file.srcPreviewIcon ) {
                 file.srcPreviewIcon = previews[index];
             }
             return file;
         } );
-        return formattedFiles;
     };
 
     renderDropzoneContent = ( { isDragActive, isDragReject, acceptedFiles, rejectedFiles } ) => {
@@ -143,7 +107,7 @@ export class DropZoneFile extends React.Component {
                     <CloudUploadIcon className={classes.rightIcon} />
                 </Button>
 
-                {this.state.loading && <LinearProgress />}
+                { this.state.loading && <LinearProgress /> }
 
                 <DroppedFilesList />
             </section>
@@ -151,11 +115,12 @@ export class DropZoneFile extends React.Component {
     }
 }
 
+
 const mapDispatchToProps = dispatch => ( {
     addFiles: files => dispatch( addFiles( files ) )
 } );
 
 export default connect( undefined, mapDispatchToProps )(
-    withTheme( withStyles( styles )( DropZoneFile ) )
+    withTheme( withStyles( styles )( DropZoneUploader ) )
 );
 

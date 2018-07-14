@@ -1,22 +1,14 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles/index';
-import withTheme from '../withTheme';
+import withTheme from '../../../../withTheme';
 import Avatar from '@material-ui/core/Avatar';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import ImageIcon from '@material-ui/icons/Image';
+import styles from './DroppedFilesListItemAvatar.styles';
 
-const styles = theme => ( {
-    avatar: {
-        width: 24,
-        height: 24,
-        marginRight: theme.spacing.sizeS,
-        borderRadius: '0 !important',
-    },
-} );
 
-class DroppedFilesListItemAvatar extends React.Component {
-
+export class DroppedFilesListItemAvatar extends React.Component {
     chooseImagePreview = ( { file } ) => {
         const { classes } = this.props;
         return file.srcPreviewIcon ? (
@@ -45,5 +37,6 @@ class DroppedFilesListItemAvatar extends React.Component {
         );
     }
 }
+
 
 export default withTheme( withStyles( styles )( DroppedFilesListItemAvatar ) );

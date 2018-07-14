@@ -1,17 +1,11 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import withTheme from '../withTheme';
-import NavBar from '../components/NavBar';
-import DropZoneFile from '../components/DropZoneFile';
+import withTheme from '../../withTheme';
+import NavBar from '../../components/navbar/NavBar';
+import DropZoneFile from '../../components/drop-zone-uploader/DropZoneUploader';
+import styles from './home.styles';
 
-const styles = theme => ( {
-    container: {
-        maxWidth: `${ theme.breakpoints.values.md }px`,
-        margin: 'auto',
-        padding: theme.spacing.sizeS,
-    },
-} );
 
 export class PageHome extends React.Component {
     render() {
@@ -33,5 +27,6 @@ export class PageHome extends React.Component {
         );
     }
 }
+
 
 export default withTheme( withStyles( styles )( PageHome ) );

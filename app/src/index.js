@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 
-import PageHome from './pages/PageHome';
+import PageHome from './pages/home/PageHome';
 import configureStore from './store/configureStore';
 
 import 'reset-css/reset.css';

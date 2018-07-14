@@ -1,17 +1,13 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles/index';
-import withTheme from '../withTheme';
+import withTheme from '../../../withTheme';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import numeral from 'numeral';
-import DroppedFilesListItemAvatar from './DroppedFilesListItemAvatar';
-import DroppedFilesListItemDeleteIcon from './DroppedFilesListItemDeleteIcon';
+import DroppedFilesListItemAvatar from './list-item-avatar/DroppedFilesListItemAvatar';
+import DroppedFilesListItemDeleteIcon from './list-item-delete-icon/DroppedFilesListItemDeleteIcon';
+import styles from './DroppedFilesListItem.styles';
 
-const styles = theme => ( {
-    listItemTextRoot: {
-        paddingRight: theme.spacing.sizeL
-    }
-} );
 
 export class DroppedFilesListItem extends React.Component {
     render() {
@@ -29,5 +25,6 @@ export class DroppedFilesListItem extends React.Component {
         );
     }
 }
+
 
 export default withTheme( withStyles( styles )( DroppedFilesListItem ) );
