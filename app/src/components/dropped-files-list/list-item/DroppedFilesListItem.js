@@ -22,7 +22,7 @@ export class DroppedFilesListItem extends React.Component {
                     primary={file.name}
                     secondary={numeral( file.size ).format( '0.00b' )}
                 />
-                <DroppedFilesListItemCloudIcon />
+                <DroppedFilesListItemCloudIcon index={index} file={file}/>
                 <ListItemSecondaryAction>
                     <DroppedFilesListItemDeleteIcon index={index} />
                 </ListItemSecondaryAction>

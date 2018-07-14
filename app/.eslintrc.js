@@ -46,7 +46,8 @@ module.exports ={
         'no-console': [ 'off' ],
         'no-unused-vars': [ 'warn' ],
         'react/display-name': [ 'off' ],
-        'quotes': [ 'warn', 'single', { 'avoidEscape': true } ]
+        'quotes': [ 'warn', 'single', { 'avoidEscape': true } ],
+        'no-case-declarations': [ 'off' ]
     },
     'plugins': [
         'react'

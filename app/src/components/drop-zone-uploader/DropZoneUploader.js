@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
 import { withStyles } from '@material-ui/core/styles/index';
 import withTheme from '../../withTheme';
@@ -6,8 +7,8 @@ import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import DroppedFilesList from '../dropped-files-list/DroppedFilesList';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { connect } from 'react-redux';
 import { addFiles } from '../../actions/files';
+import acceptedFiles from '../../config/accepted-files';
 import styles from './DropZoneUploader.styles';
 
 
@@ -15,46 +16,7 @@ export class DropZoneUploader extends React.Component {
     state = {
         loading: false,
         // https://www.iana.org/assignments/media-types/media-types.xhtml
-        acceptedFiles: [
-            'image/*',
-            'audio/*',
-            'text/*',
-            'video/*',
-            'application/msword',
-            'application/pdf',
-            'application/xml',
-            'application/json',
-            'image/vnd.adobe.photoshop',
-            'application/epub+zip',
-            '.azw3',
-            '.xlsx',
-            '.kfx',
-            '.sdr',
-            '.mobi',
-            '.nef',
-            '.pptx',
-            '.otf',
-            '.ttf',
-            '.eot',
-            '.woff',
-            '.woff2',
-            '.ttc',
-            '.docx',
-            '.odt',
-            '.eps',
-            '.ai',
-            '.js',
-            '.jsx',
-            '.scss',
-            '.less',
-            '.css',
-            '.html',
-            '.yml',
-            '.ejs',
-            '.hbs',
-            '.php',
-            '.json',
-        ].join( ',' ),
+        acceptedFiles: acceptedFiles.join( ',' ),
     };
 
     onDrop = acceptedFiles => {
