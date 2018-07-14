@@ -25,7 +25,7 @@ module.exports ={
         'es6': true,
         'node': true,
         'jasmine': true,
-        'jest': true
+        'jest': true,
     },
     'globals': {
         'console': false
@@ -46,7 +46,8 @@ module.exports ={
         'no-console': [ 'off' ],
         'no-unused-vars': [ 'warn' ],
         'react/display-name': [ 'off' ],
-        'quotes': [ 'warn', 'single', { 'avoidEscape': true } ]
+        'quotes': [ 'warn', 'single', { 'avoidEscape': true } ],
+        'no-case-declarations': [ 'off' ]
     },
     'plugins': [
         'react'
