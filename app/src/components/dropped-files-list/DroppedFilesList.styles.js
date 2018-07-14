@@ -5,16 +5,23 @@ const styles = theme => ( {
         backgroundColor: theme.palette.background.paper,
         marginTop: theme.spacing.sizeS,
     },
+
+    listSubHeader: {
+        display: 'flex'
+    },
+
     rootBadge: {
         display: 'flex',
         justifyContent: 'left',
         alignItems: 'center',
+        marginRight: theme.spacing.sizeS
     },
+
     secondaryBadge: {
         position: 'relative',
         top: 'auto',
         right: 'auto',
-        marginLeft: theme.spacing.unit
+        marginLeft: theme.spacing.unit / 2
     }
 } );
 
