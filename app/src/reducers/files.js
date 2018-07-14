@@ -19,6 +19,11 @@ export default ( state = filesReducerDefaultState, action ) => {
             file.status = action.index === index ? 'done' : file.status;
             return file;
         } );
+    case 'FAIL_FILE':
+        return state.map( ( file, index ) => {
+            file.status = action.index === index ? 'failed' : file.status;
+            return file;
+        } );
     default:
         return state;
     }

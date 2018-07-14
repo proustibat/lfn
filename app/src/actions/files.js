@@ -13,6 +13,11 @@ export const uploadFile = index => ( {
     index
 } );
 
+export const failFile = index => ( {
+    type: 'FAIL_FILE',
+    index
+} );
+
 export const startUploadFile = ( index = null ) => {
     return ( dispatch, getState ) => {
         console.log( 'Uploading ', getState().files[ index ].name );
@@ -30,8 +35,8 @@ export const startUploadFile = ( index = null ) => {
                 dispatch( uploadFile( index ) );
             } )
             .catch( e => {
-                // TODO: display an information to user
                 console.log( 'ERROR ', e );
+                dispatch( failFile( index ) );
             } );
     };
 };
