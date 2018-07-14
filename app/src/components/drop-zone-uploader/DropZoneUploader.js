@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles/index';
 import withTheme from '../../withTheme';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import DroppedFilesList from '../dropped-files-list/DroppedFilesList';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { addFiles } from '../../actions/files';
 import acceptedFiles from '../../config/accepted-files';
@@ -97,8 +96,6 @@ export class DropZoneUploader extends React.Component {
                 </Button>
 
                 { this.state.loading && <LinearProgress /> }
-
-                <DroppedFilesList />
             </section>
         );
     }

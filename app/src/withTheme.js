@@ -28,6 +28,7 @@ const theme = createMuiTheme( {
     },
 
     sizing: {
+        sizeXS: '0.7rem',
         sizeS: '1rem',
         sizeM: '1.5rem',
         sizeL: '2rem',

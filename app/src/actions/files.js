@@ -20,7 +20,6 @@ export const failFile = index => ( {
 
 export const startUploadFile = ( index = null ) => {
     return ( dispatch, getState ) => {
-        console.log( 'Uploading ', getState().files[ index ].name );
         fetch( 'https://fhirtest.uhn.ca/baseDstu3/Binary', {
             method: 'post',
             body: getState().files[ index ]
@@ -30,8 +29,7 @@ export const startUploadFile = ( index = null ) => {
                     return response.json();
                 }
             } )
-            .then( data => {
-                console.log( 'UPLOADED ', data );
+            .then( () => {
                 dispatch( uploadFile( index ) );
             } )
             .catch( e => {
