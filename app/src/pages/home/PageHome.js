@@ -3,9 +3,11 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import withTheme from '../../withTheme';
 import NavBar from '../../components/navbar/NavBar';
-import DropZoneFile from '../../components/drop-zone-uploader/DropZoneUploader';
-import styles from './home.styles';
+import DropZoneUploader from '../../components/drop-zone-uploader/DropZoneUploader';
+import DroppedFilesList from '../../components/dropped-files-list/DroppedFilesList';
+import ServerInfo from '../../components/server-info/ServerInfo';
 
+import styles from './home.styles';
 
 export class PageHome extends React.Component {
     render() {
@@ -17,11 +19,9 @@ export class PageHome extends React.Component {
                     <Typography variant="display1" gutterBottom>
                         Welcome to your documents uploader
                     </Typography>
-                    <Typography variant="body1" gutterBottom>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                    </Typography>
-                    <DropZoneFile />
+                    <ServerInfo />
+                    <DropZoneUploader />
+                    <DroppedFilesList />
                 </div>
             </div>
         );
