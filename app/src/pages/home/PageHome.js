@@ -6,10 +6,13 @@ import NavBar from '../../components/navbar/NavBar';
 import DropZoneUploader from '../../components/drop-zone-uploader/DropZoneUploader';
 import DroppedFilesList from '../../components/dropped-files-list/DroppedFilesList';
 import ServerInfo from '../../components/server-info/ServerInfo';
+import WatcherComponent from '../../components/watcher/WatcherComponent';
 
 import styles from './home.styles';
 
+
 export class PageHome extends React.Component {
+
     render() {
         const { classes } = this.props;
         return (
@@ -20,6 +23,7 @@ export class PageHome extends React.Component {
                         Welcome to your documents uploader
                     </Typography>
                     <ServerInfo />
+                    <WatcherComponent />
                     <DropZoneUploader />
                     <DroppedFilesList />
                 </div>

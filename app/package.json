@@ -6,6 +6,7 @@
         "@material-ui/core": "^1.3.1",
         "@material-ui/icons": "^1.1.0",
         "babel-eslint": "^8.2.6",
+        "chokidar": "^2.0.4",
         "eslint": "^5.1.0",
         "eslint-plugin-import": "^2.13.0",
         "eslint-plugin-node": "^6.0.1",
@@ -32,7 +33,7 @@
         "start-js": "react-scripts start",
         "start": "npm-run-all -p watch-css start-js",
         "build-js": "react-scripts build",
-        "build": "npm-run-all build-css build-js",
+        "build": "npm-run-all build-css build-js electron",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "lint:js": "eslint ./src --ext .js -c .eslintrc.js --fix",
@@ -40,7 +41,7 @@
         "watch:eslint": "nodemon --watch ./src -e js -x \"yarn lint:js\"",
         "serve-build": "serve build && open http://localhost:5000",
         "electron": "electron .",
-        "electron-dev" : "nf start -p 3030"
+        "electron-dev": "nf start"
     },
     "main": "src/electron-main.js",
     "homepage": "./",
