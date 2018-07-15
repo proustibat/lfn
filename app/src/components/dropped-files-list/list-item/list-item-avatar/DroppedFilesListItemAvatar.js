@@ -27,7 +27,7 @@ export class DroppedFilesListItemAvatar extends React.Component {
 
     render() {
         const { index, file } = this.props;
-        if( file.type.includes( 'audio' ) ) {
+        if( file.type && file.type.includes( 'audio' ) ) {
             return (
                 <ListItemIcon>
                     <LibraryMusic />
@@ -35,7 +35,7 @@ export class DroppedFilesListItemAvatar extends React.Component {
             );
         }
 
-        if( file.type.includes( 'video' ) ) {
+        if( file.type && file.type.includes( 'video' ) ) {
             return (
                 <ListItemIcon>
                     <VideoLibrary />
@@ -43,7 +43,7 @@ export class DroppedFilesListItemAvatar extends React.Component {
             );
         }
 
-        if( file.type.includes( 'epub' ) ||
+        if( ( file.type && file.type.includes( 'epub' ) ) ||
             file.name.toLowerCase().includes( '.azw3' ) ||
             file.name.toLowerCase().includes( '.kfx' ) ||
             file.name.toLowerCase().includes( '.sdr' ) ||
@@ -55,12 +55,12 @@ export class DroppedFilesListItemAvatar extends React.Component {
             );
         }
 
-        if( file.type.includes( 'image' ) ||
+        if( ( file.type && file.type.includes( 'image' ) ) ||
             file.name.toLowerCase().includes( '.ai' ) ||
             file.name.toLowerCase().includes( '.nef' ) ||
             file.name.toLowerCase().includes( '.eps' ) ||
-            file.type.includes( 'photoshop' ) ||
-            file.type.includes( 'svg' ) ) {
+            ( file.type && file.type.includes( 'photoshop' ) ) ||
+            ( file.type && file.type.includes( 'svg' ) ) ) {
             return this.chooseImagePreview( { index, file } );
         }
 

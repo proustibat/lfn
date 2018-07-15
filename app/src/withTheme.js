@@ -1,6 +1,8 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
+import green from '@material-ui/core/colors/green';
+import blue from '@material-ui/core/colors/blue';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -19,9 +21,15 @@ const theme = createMuiTheme( {
             main: blueGrey[ 500 ],
             dark: blueGrey[ 700 ],
         },
+        watchEvents: {
+            new: green[ 300 ],
+            delete: red[ 300 ],
+            change: blue[ 300 ],
+        }
     },
 
     spacing: {
+        sizeXS: '0.6rem',
         sizeS: '1rem',
         sizeM: '2rem',
         sizeL: '3rem',

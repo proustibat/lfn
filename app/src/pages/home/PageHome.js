@@ -12,6 +12,7 @@ import styles from './home.styles';
 
 
 export class PageHome extends React.Component {
+
     render() {
         const { classes } = this.props;
         return (
