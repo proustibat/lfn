@@ -4,7 +4,7 @@
 
 Follow this link to see it working: [http://lfn.surge.sh/](http://lfn.surge.sh/).
 
-Please, note that the api is not in https, so be sure to open your browser not in https:
+Please, note that the api is not in https, so be sure to open your browser not in http.
 
 The electron part with the watcher is only available on a desktop. Read further to know more information about installation 
 
