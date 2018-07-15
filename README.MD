@@ -1,4 +1,4 @@
-# Lifen Game
+# LFN CHLLNG
 
 ## Demo
 
