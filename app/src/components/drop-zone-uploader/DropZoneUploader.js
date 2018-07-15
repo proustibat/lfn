@@ -80,7 +80,7 @@ export class DropZoneUploader extends React.Component {
                     }}
                     onDrop={this.onDrop}
                     accept={this.state.acceptedFiles}
-                    maxSize={10000000} // 10mb
+                    maxSize={2000000} // 2mb
                 >
                     {this.renderDropzoneContent}
                 </Dropzone>
