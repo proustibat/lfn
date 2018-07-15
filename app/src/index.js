@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 
 import PageHome from './pages/home/PageHome';
@@ -20,4 +20,4 @@ const jsx = (
 );
 
 ReactDOM.render( jsx, document.getElementById( 'root' ) );
-registerServiceWorker();
+// registerServiceWorker();

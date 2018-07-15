@@ -1,5 +1,13 @@
 # Lifen Game
 
+## Demo
+
+Follow this link to see it working: [http://lfn.surge.sh/](http://lfn.surge.sh/).
+
+Please, note that the api is not in https, so be sure to open your browser not in https:
+
+The electron part with the watcher is only available on a desktop. Read further to know more information about installation 
+
 ## Screenshots
 
 ### Watching a directory
@@ -32,7 +40,7 @@ This is a small webapp connected to a backend, that will upload a document and g
 Be sure you installed [yarn](https://yarnpkg.com/lang/en/) or [npm](https://www.npmjs.com/).
 
 ```
-git clone git@github.com:proustibat/lifen-game.git && cd lifen-game/app
+git clone git@github.com:proustibat/lfn.git && cd lfn/app
 yarn install
 ```
 ## Watching
@@ -77,3 +85,4 @@ yarn test
 - Delete button: check if it's possible to delete from server
 - Rerun getServerInfo when retrying to upload works
 - Check the upload size limit on the server
+- Some TODO's in code!

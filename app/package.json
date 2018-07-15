@@ -41,7 +41,8 @@
         "watch:eslint": "nodemon --watch ./src -e js -x \"yarn lint:js\"",
         "serve-build": "serve build && open http://localhost:5000",
         "electron": "electron .",
-        "electron-dev": "nf start"
+        "electron-dev": "nf start",
+        "deploy:surge": "surge --project ./build --domain http://lfn.surge.sh"
     },
     "main": "src/electron-main.js",
     "homepage": "./",
@@ -55,6 +56,7 @@
         "nodemon": "^1.18.1",
         "path": "^0.12.7",
         "prettier": "^1.13.7",
+        "surge": "^0.20.1",
         "url": "^0.11.0"
     },
     "config": {
