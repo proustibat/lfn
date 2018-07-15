@@ -37,15 +37,24 @@
         "eject": "react-scripts eject",
         "lint:js": "eslint ./src --ext .js -c .eslintrc.js --fix",
         "format": "prettier \"src/**/*.{js,jsx}\"",
-        "watch:eslint": "nodemon --watch ./src -e js -x \"yarn lint:js\""
+        "watch:eslint": "nodemon --watch ./src -e js -x \"yarn lint:js\"",
+        "serve-build": "serve build && open http://localhost:5000",
+        "electron": "electron .",
+        "electron-dev" : "nf start -p 3030"
     },
+    "main": "src/electron-main.js",
+    "homepage": "./",
     "devDependencies": {
         "commitizen": "^2.10.1",
         "cz-conventional-changelog": "^2.1.0",
+        "electron": "^2.0.5",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-prettier": "^2.6.2",
+        "foreman": "^3.0.1",
         "nodemon": "^1.18.1",
-        "prettier": "^1.13.7"
+        "path": "^0.12.7",
+        "prettier": "^1.13.7",
+        "url": "^0.11.0"
     },
     "config": {
         "commitizen": {
