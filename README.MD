@@ -1,6 +1,14 @@
 # Lifen Game
 
-## Screens
+## Screenshots
+
+### Watching a directory
+
+<img src="https://user-images.githubusercontent.com/1054387/42737931-993626a8-887b-11e8-9c85-302fa5b10651.gif"/>
+
+### Dropping files
+
+<img src="https://user-images.githubusercontent.com/1054387/42737964-207433b2-887c-11e8-9d7b-92cf01ffa986.gif"/>
 
 ## Main libraries used
 
