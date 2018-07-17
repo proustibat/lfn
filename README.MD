@@ -54,7 +54,7 @@ This should open your browser and the electron app.
 ## Building
 
 ```
-yarn electron
+yarn build
 ```
 
 This command build the react app in the 'build' directory. You could serve it in an electron app by running `yarn electron`.
